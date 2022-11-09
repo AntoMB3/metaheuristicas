@@ -1,0 +1,93 @@
+{
+    "cities": {
+             "Sioux Falls": [
+                "Rochester",
+                "Fargo"
+            ],
+            "Fargo": [
+                "Grand Forks",
+                "St. Cloud",
+                "Sioux Falls"
+            ],
+            "Grand Forks": [
+                "International Falls",
+                "Bemidji",
+                "Fargo"
+            ],
+            "Bemidji" : [
+                "International Falls",
+                "Duluth",
+                "St. Cloud",
+                "Grand Forks"
+            ],
+            "International Falls":[
+                "Duluth",
+                "Bemidji",
+                "Grand Forks"
+            ],
+            "Duluth": [
+                "Minneapolis",
+                "Bemidji",
+                "International Falls"
+            ],
+            "St. Cloud": [
+                "Minneapolis",
+                "Fargo",
+                "Bemidji"
+            ],
+            "Minneapolis": [
+                "Wausau",
+                "LaCrose",
+                "Rochester",
+                "St. Cloud",
+                "Duluth"
+            ],
+            "Rochester": [
+                "Minneapolis",
+                "LaCrose",
+                "Dubuque",
+                "Sioux Falls"
+            ],
+            "LaCrose": [
+                "Green Bay",
+                "Madinson",
+                "Dubuque",
+                "Rochester"
+            ],
+            "Wausau":[
+                "Green Bay",
+                "Minneapolis"
+            ],
+            "Green Bay": [
+                "Wausau",
+                "LaCrose",
+                "Milwaukee"
+            ],
+            "Dubuque":[
+                "Rockford",
+                "LaCrose",
+                "Rochester"
+            ],
+            "Madinson": [
+                "Milwaukee",
+                "Rockford",
+                "LaCrose"
+            ],
+            "Milwaukee":[
+                "Chicago",
+                "Madinson",
+                "Green Bay"
+            ],
+            "Rockford":[
+                "Dubuque",
+                "Chicago",
+                "Madinson"
+            ],
+            "Chicago": [
+                "Milwaukee",
+                "Rockford"
+            ]
+        
+            
+    }
+}
