@@ -112,15 +112,55 @@ def recocido(origen,destino,ciudades,t0,t1):
         a = 0
     return sol,peso
 
-    
+def tabu(origen,destino,ciudades):
+    sol,peso = sol_inicial(origen,destino,ciudades)
+    lista_tabu = dict()
+    paso_sentencia = 3
+    actual = ciudades[origen]
+    recorrido = []
+    while(True):
+        if (len(lista_tabu) > 0):
+            lista_tabu_temp = lista_tabu.copy()
+            for i in lista_tabu_temp:
+                valor_actual = lista_tabu[i]
+                valor_actual += 1
+                d = {i:valor_actual}
+                lista_tabu.update(d)
+                if(valor_actual >= 3):
+                    del lista_tabu[i]
+                    
+        if(actual == ciudades[destino]):
+            return sol,peso
+        posibilidades = list(data['cities'][actual])
+        po_temp = list()
+        for i in posibilidades:
+            if i not in lista_tabu:
+                po_temp.append(i)
+        posibilidades = po_temp
+        if(len(posibilidades) > 0):
+            cantidad_posibilidades = len(posibilidades)
+            elegido = random.randint(0,cantidad_posibilidades-1)
+            city = posibilidades[elegido]
+            recorrido.append(city)
+            peso += data['cities'][actual][city]
+            d = {city:1}
+            lista_tabu.update(d)
+            actual = city
+        
 ciudades = list(data["cities"])
 print("Elige lugar origen")
 origen = choosen_citie(ciudades)
 print("Elige lugar Destino")
 destino = choosen_citie(ciudades)
 
-#recorrido_voraz = hill_climbing(origen,destino,ciudades)
-#print(recorrido_voraz)
+print("Recorrido Hill Climbing")
+recorrido_voraz = hill_climbing(origen,destino,ciudades)
+print(recorrido_voraz)
 
+print("\nRecorrido Recocido Simulado")
 recorrido_recocido,peso = recocido(origen,destino,ciudades,800,300)
-print(str(recorrido_recocido) + " Peso : " + str(peso))
+print(str(recorrido_recocido))
+
+print("\nRecorrido Busqueda Tabu")
+recorrido_recocido,peso = tabu(origen,destino,ciudades)
+print(str(recorrido_recocido))
